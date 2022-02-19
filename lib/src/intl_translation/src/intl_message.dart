@@ -787,7 +787,9 @@ abstract class SubMessage extends ComplexMessage {
     out.write('(');
     out.write(mainArgument);
     if (dartMessageName == 'Intl.plural') {
-      out.write(' as num');
+      out.write(' is num ? ');
+      out.write(mainArgument);
+      out.write(': 0');
     }
     var args = codeAttributeNames.where((attribute) => this[attribute] != null);
     args.fold(
