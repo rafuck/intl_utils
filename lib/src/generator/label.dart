@@ -297,8 +297,8 @@ class Label {
 
       var args = _getArgs(placeholders, parsedContent);
       var contentType = _getContentType(parsedContent, args);
-
-      var isValid = _validate(name, content, args);
+      final fixedName = normalizeStr(name);
+      var isValid = _validate(fixedName, content, args);
       if (!isValid) {
         throw ValidationException();
       }
@@ -308,10 +308,10 @@ class Label {
           {
             return [
               _generateDartDoc(),
-              '  String get $name {',
+              '  String get $fixedName {',
               '    return Intl.message(',
               '      \'$content\',',
-              '      name: \'$name\',',
+              '      name: \'$fixedName\',',
               '      desc: \'$description\',',
               '      args: [],',
               '    );',

@@ -108,7 +108,9 @@ class IntlTranslationHelper {
     var translations = <TranslatedMessage>[];
     for (var jsonTranslations in localeData) {
       jsonTranslations.forEach((id, messageData) {
-        TranslatedMessage? message = _recreateIntlObjects(id, messageData);
+        TranslatedMessage? message =
+            _recreateIntlObjects(normalizeStr(id), messageData);
+
         if (message != null) {
           translations.add(message);
         }

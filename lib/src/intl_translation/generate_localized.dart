@@ -170,7 +170,7 @@ class MessageGeneration {
             .toList()
           ..sort((a, b) => a.name.compareTo(b.name)))
         .map((original) =>
-            '    "${original.escapeAndValidateString(original.name)}" '
+            '    "${denormalizeStr(original.escapeAndValidateString(original.name))}" '
             ': ${_mapReference(original, locale)}');
     output
       ..write(entries.join(',\n'))

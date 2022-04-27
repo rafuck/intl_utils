@@ -51,3 +51,9 @@ String formatDartContent(String content, String fileName) {
     return content;
   }
 }
+
+String normalizeStr(String str) =>
+    str.replaceAll('-', '__DASH__').replaceAll('.', '__DOT__');
+
+String denormalizeStr(String str) =>
+    str.replaceAll('__DASH__', '-').replaceAll('__DOT__', '.');

@@ -63,7 +63,7 @@ class IcuParser {
 
   Parser get number => digit().plus().flatten().trim().map(int.parse);
 
-  Parser get id => (letter() & (word() | char('_')).star()).flatten().trim();
+  Parser get id => (letter() & (word() | char('_') | char('-') | char('.')).star()).flatten().trim();
 
   Parser get comma => char(',').trim();
 
